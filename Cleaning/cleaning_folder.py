@@ -64,25 +64,26 @@ def path_folder(_path):
 
 
     # # Creating Folders
-    os.makedirs(_path+"/System_Files", exist_ok=True)
-    system_files_dir = _path+"/System_Files"
+    system_files_dir = folder_path / "System_Files"
+    system_files_dir.mkdir(exist_ok=True)
 
-    os.makedirs(_path+"/Documents", exist_ok=True)
-    documents_dir = _path+"/Documents"
+    documents_dir = folder_path / "Documents"
+    documents_dir.mkdir(exist_ok=True)
 
-    os.makedirs(_path+"/Musics", exist_ok=True)
-    musics_dir = _path+"/Musics"
+    musics_dir = folder_path / "Musics"
+    musics_dir.mkdir(exist_ok=True)
 
-    os.makedirs(_path+"/Photos", exist_ok=True)
-    photos_dir = _path+"/Photos"
+    photos_dir = folder_path / "Photos"
+    photos_dir.mkdir(exist_ok=True)
 
-    os.makedirs(_path+"/Videos", exist_ok=True)
-    videos_dir = _path+"/Videos"
+    videos_dir = folder_path / "Videos"
+    videos_dir.mkdir(exist_ok=True)
 
-    os.makedirs(_path+"/Unknown", exist_ok=True)
-    unknown_dir = _path+"/Unknown"
+    unknown_dir = folder_path / "Unknown"
+    unknown_dir.mkdir(exist_ok=True)
 
 
+    
     for item in folder_path.rglob('*'):
         if item.is_file():
 
