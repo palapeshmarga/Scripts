@@ -1,4 +1,5 @@
 from pathlib import Path 
+import argparse
 import os 
 import shutil
 
@@ -104,5 +105,12 @@ def path_folder(_path):
                 shutil.move(str(item), unknown_dir)
 
 
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Clean a target folder.")
+    parser.add_argument(
+        "--path", required=True, help="The full path to the folder to clean"
+    )
 
-path_folder("/home/pala-peshmarga/Desktop/missy_folder")
+    args = parser.parse_args()
+
+    path_folder(args.path)
