@@ -11,8 +11,6 @@ class Systems:
             text=True
         )
 
-        print(result)
-
         if result.returncode != 0 or "permission denied" in result.stderr.lower():
             print("Standard scan needs root. Trying with sudo...")
             subprocess.run(["sudo", "arp-scan", "--localnet"])
