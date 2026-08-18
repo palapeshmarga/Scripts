@@ -47,7 +47,7 @@ class Systems:
             print("Standard scan needs root. Trying with sudo...")
             subprocess.run(["sudo", "arp-scan", "--localnet"])
         elif "command not found" in result.stderr.lower():
-            not_installed = input("You haven't installed apr-scan\nEnter ok to install it").lower()
+            not_installed = input("You haven't installed arp-scan\nEnter ok to install it").lower()
             if not_installed == "ok":
                 subprocess.run(["brew", "install", "arp-scan"])
                 subprocess.run(["sudo", "arp-scan", "--localnet"])
@@ -63,23 +63,3 @@ elif Systems.os_name == "Windows":
 
 elif Systems.os_name == "Darwin":
     Systems.Mac()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-# else:
-#     print("_"*30+"\n|Sorry you are not on Windows|\n"+"‾"*30)
