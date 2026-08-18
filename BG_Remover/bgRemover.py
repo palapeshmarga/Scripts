@@ -1,6 +1,3 @@
-# target_img = '/home/pala-peshmarga/Downloads/Photos/todo_icon.webp'
-# result_img = '/home/pala-peshmarga/Downloads/Photos/result.webp'
-
 import sys
 import os
 from rembg import remove
