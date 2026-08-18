@@ -6,7 +6,7 @@ class Systems:
     os_name = platform.system()
     def Linux():
         result = subprocess.run(
-            ["arp-scan", "--localnet", "|", "grep", "192.168.1.218"],
+            ["arp-scan", "--localnet"],
             capture_output=True,
             text=True
         )
