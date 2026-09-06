@@ -31,9 +31,18 @@ cd Scripts/FindTheWord
 
 ## 📖 Usage & Flags
 
+### Linux & macOS
 ```bash
 python3 main.py [-p FOLDER | -rp FOLDER] -w "TEXT" [-t EXT] [-S]
 ```
+
+### Windows (Command Prompt / PowerShell)
+```cmd
+python main.py [-p FOLDER | -rp FOLDER] -w "TEXT" [-t EXT]
+```
+*(Note: Windows uses `python` instead of `python3`, and supports both backslashes and forward slashes `/` for folder paths. The `-S` sudo flag is designed for Unix systems).*
+
+---
 
 ### Command Line Arguments
 
@@ -43,7 +52,7 @@ python3 main.py [-p FOLDER | -rp FOLDER] -w "TEXT" [-t EXT] [-S]
 | `-rp` | `--recursive-path` | Search in target directory **AND all subfolders** recursively. | Yes* |
 | `-w` | `--word` | The text string or word to search for (case-insensitive). | **Yes** |
 | `-t` | `--type` | File extension to filter by (e.g., `txt`, `py`). Default: `*` (all files). | No |
-| `-S` | `--sudo` | Re-run script with `sudo` root privileges to inspect protected files. | No |
+| `-S` | `--sudo` | Re-run script with `sudo` root privileges to inspect protected files (Linux/macOS). | No |
 | `-h` | `--help` | Show help message and exit. | No |
 
 *\* Note: You must provide either `-p` or `-rp` (they are mutually exclusive).*
@@ -52,26 +61,32 @@ python3 main.py [-p FOLDER | -rp FOLDER] -w "TEXT" [-t EXT] [-S]
 
 ## 💡 Examples
 
-### 1. Search in a single folder for `.txt` files
+### Linux / macOS
+**1. Search single folder for .txt files**
 ```bash
 python3 main.py -p /home/user/Desktop/my_folder -w "hello kurdistan" -t txt
 ```
 
-### 2. Recursive search across all subdirectories and file types
-```bash
+**2. Recursive search across all subdirectories and file types**
+```
 python3 main.py -rp /home/user/Desktop -w "hello kurdistan"
 ```
 
-### 3. Recursive search with `sudo` privileges for restricted directories
-```bash
+**3. Recursive search with sudo privileges for restricted system directories**
+```
 python3 main.py -S -rp /var/log -w "error" -t log
 ```
 
-### 4. Display help documentation
-```bash
-python3 main.py -h
+### Windows
+**1. Search single folder for `.txt` files**
+```cmd
+python main.py -p C:\Users\Username\Desktop\my_folder -w "hello kurdistan" -t txt
 ```
 
+**2. Recursive search across all subdirectories**
+```bash
+python main.py -rp C:\Users\Username\Desktop -w "hello kurdistan"
+```
 ---
 
 ## 📝 License
