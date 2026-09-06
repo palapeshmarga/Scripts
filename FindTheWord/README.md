@@ -48,12 +48,12 @@ python main.py [-p FOLDER | -rp FOLDER] -w "TEXT" [-t EXT]
 
 | Flag | Long Flag | Description | Required |
 | :--- | :--- | :--- | :---: |
-| `-p` | `--path` | Search **ONLY** in the target directory (single level). | Yes* |
-| `-rp` | `--recursive-path` | Search in target directory **AND all subfolders** recursively. | Yes* |
+| `-p` | `--path` | Search **ONLY** in the target directory (single level). | **Yes** |
+| `-rp` | `--recursive-path` | Search in target directory **AND all subfolders** recursively. | **Yes** |
 | `-w` | `--word` | The text string or word to search for (case-insensitive). | **Yes** |
-| `-t` | `--type` | File extension to filter by (e.g., `txt`, `py`). Default: `*` (all files). | No |
-| `-S` | `--sudo` | Re-run script with `sudo` root privileges to inspect protected files (Linux/macOS). | No |
-| `-h` | `--help` | Show help message and exit. | No |
+| `-t` | `--type` | File extension to filter by (e.g., `txt`, `py`). Default: `*` (all files). | **No** |
+| `-S` | `--sudo` | Re-run script with `sudo` root privileges to inspect protected files (Linux/macOS). | **No** |
+| `-h` | `--help` | Show help message and exit. | **No** |
 
 *\* Note: You must provide either `-p` or `-rp` (they are mutually exclusive).*
 
