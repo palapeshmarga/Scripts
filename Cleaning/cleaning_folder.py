@@ -63,7 +63,7 @@ def path_folder(_path):
 
 
 
-    # # Creating Folders
+    # Creating Folders
     system_files_dir = folder_path / "System_Files"
     system_files_dir.mkdir(exist_ok=True)
 
@@ -84,26 +84,35 @@ def path_folder(_path):
 
 
     
-    for item in folder_path.rglob('*'):
-        if item.is_file():
+    target_dirs = {system_files_dir, documents_dir, musics_dir, photos_dir, videos_dir, unknown_dir}
 
-            if item.suffix.lower() in musics:
-                shutil.move(str(item), musics_dir)
+    for item in folder_path.iterdir():
+    
+        if item.is_dir() or item.parent in target_dirs:
+            continue
 
-            elif item.suffix.lower() in system_files:
-                shutil.move(str(item), system_files_dir)
+        ext = item.suffix.lower()
+        
+        if ext in musics:
+            dest_dir = musics_dir
+        elif ext in system_files:
+            dest_dir = system_files_dir
+        elif ext in videos:
+            dest_dir = videos_dir
+        elif ext in photos:
+            dest_dir = photos_dir
+        elif ext in documents:
+            dest_dir = documents_dir
+        else:
+            dest_dir = unknown_dir
 
-            elif item.suffix.lower() in videos:
-                shutil.move(str(item), videos_dir)
+        dest_file = dest_dir / item.name
 
-            elif item.suffix.lower() in photos:
-                shutil.move(str(item), photos_dir)
-
-            elif item.suffix.lower() in documents:
-                shutil.move(str(item), documents_dir)
-
-            else:
-                shutil.move(str(item), unknown_dir)
+        if dest_file.exists():
+            dest_file.unlink()
+            shutil.move(str(item), str(dest_dir))
+        else:
+            shutil.move(str(item), str(dest_dir))
 
 
 if __name__ == "__main__":
@@ -115,3 +124,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     path_folder(args.path)
+
+print("Done!")
